@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>欢迎</title>
+    <script src="stompjs.js"></script>
+    <script src="login.js"></script>
+    <style>
+        body {
+          font-family: Arial, sans-serif;
+          text-align: center;
+        }
+
+        h1 {
+          margin: 30px 0;
+          color: #333;
+        }
+
+        form {
+          max-width: 300px;
+          margin: 0 auto;
+          padding: 20px;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+        }
+
+        label {
+          display: block;
+          margin-bottom: 5px;
+          color: #333;
+        }
+
+        input {
+          width: 100%;
+          padding: 10px;
+          margin-bottom: 15px;
+          border: 1px solid #ccc;
+          border-radius: 3px;
+        }
+
+        button {
+          background-color: #007BFF;
+          color: #fff;
+          padding: 10px 15px;
+          border: none;
+          border-radius: 3px;
+          cursor: pointer;
+        }
+
+        button:hover {
+          background-color: #0056b3;
+        }
+
+        p {
+          margin-top: 20px;
+          color: #c20202;
+        }
+    </style>
+    </head>
+    <body>
+        <h1>注册和登录</h1>
+        <form id="registrationForm">
+            <label>用户名:</label>
+            <input type="text" id="username" required>
+            <br>
+            <label>密码:</label>
+            <input type="password" id="password" required>
+            <br>
+            <button type="submit" id="registerBtn" onclick="registerUser()">注册</button>
+            <button type="submit" id="loginBtn" onclick="login()">登录</button>
+        </form>
+        <p id="registrationStatus">账号为3-10位纯字母，密码为5-10位字母或数字</p>
+
+
+    </body>
+</html>
