@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>聊天</title>
+    <style>
+        /* 登录界面和聊天界面统一的样式 */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            display: flex;
+            height: 100vh;
+        }
+
+        .login-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f0f0f0;
+        }
+
+        .chat-container {
+            flex: 2;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* 好友列表样式 */
+        .friend-list-container {
+            width: 20%;
+            height: 100%;
+            border: 1px solid #ccc;
+            padding: 10px;
+            background-color: #fff;
+        }
+
+        .friend-item {
+            font-size: 24px;
+            font-weight: bold;
+            padding: 10px;
+            margin: 5px 0;
+            cursor: pointer;
+        }
+
+        /* 对话框样式 */
+        .chat-area {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+            background-color: #f0f0f0;
+        }
+
+        .message {
+            margin: 5px 0;
+            padding: 8px;
+            border-radius: 5px;
+            background-color: #d6e2ff;
+        }
+
+        .my-message {
+            background-color: #e1ffc7;
+            align-self: flex-end;
+        }
+
+        /* 输入框样式 */
+        .message-input-container {
+            display: flex;
+            margin-top: 10px;
+        }
+
+        #message-input {
+            padding: 10px; /* 增大内边距 */
+            font-size: 16px; /* 增大字体大小 */
+            width: 94%; /* 控制输入框宽度，你可以根据需求调整 */
+        }
+
+        #send-button {
+            padding: 10px; /* 增大内边距 */
+            font-size: 16px; /* 增大字体大小 */
+            background-color: #007BFF; /* 背景颜色，你可以根据需求调整 */
+            color: #fff; /* 文字颜色，你可以根据需求调整 */
+            border: none;
+            cursor: pointer;
+        }
+
+        #send-button:hover {
+            background-color: #0056b3; /* 鼠标悬停时的背景颜色，你可以根据需求调整 */
+        }
+
+        .red-flash {
+            animation: redFlash 1s linear infinite;
+        }
+        @keyframes redFlash {
+            0%, 100% {
+                color: red;
+            }
+            50% {
+                color: black;
+            }
+        }
+
+    </style>
+
+
+</head>
+
+<body>
+<div class="container">
+    <!-- 聊天展示区域 -->
+    <div class="chat-container">
+        <!-- 选中好友的名称展示区域 -->
+        <div id="selected-friend" class="chat-area">
+            找个人聊聊天吧
+        </div>
+
+        <!-- 聊天消息展示区域 -->
+        <div id="chat-area" class="chat-area">
+        </div>
+
+        <!-- 消息输入框 -->
+        <div class="message-input-container">
+            <input type="text" id="message-input" placeholder="请输入...">
+            <button id="send-button">发送</button>
+        </div>
+    </div>
+
+    <!-- 好友列表展示区域 -->
+    <div class="friend-list-container">
+        <div class="friend-item" onclick="fetchGroupMsg()">group</div>
+    </div>
+</div>
+
+<script src="stompjs.js"></script>
+<script src="mainChat.js"></script>
+</body>
+
+</html>
